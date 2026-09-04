@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>⍜⋮⌇⟟_02.dat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="raw-file-page">
+
+    <div class="raw-file-window">
+
+        <div class="raw-file-header">
+            ⍜⋮⌇⟟_02.dat
+        </div>
+
+        <div class="symbol-file-content">
+
+            <pre class="raw-file-text" id="symbol-record">
+FILE TYPE: UNKNOWN
+SOURCE: UNRESOLVED
+RECOVERY STATUS: ACTIVE
+
+--------------------------------------------------
+
+FILENAME:
+
+    ⍜⋮⌇⟟_02.dat
+
+CREATED:
+
+    04/12/1974 02:14:00
+
+MODIFIED:
+
+    08/14/2004 02:14:00
+
+LAST ACCESSED:
+
+    CURRENT SESSION
+
+--------------------------------------------------
+
+ENCODING:
+
+    UNKNOWN
+
+SOURCE MEDIA:
+
+    NONE IDENTIFIED
+
+CATALOG ASSOCIATION:
+
+    NSP-74-048
+
+--------------------------------------------------
+
+OBSERVER COUNT:
+
+    <span id="observer-count">1</span>
+
+--------------------------------------------------
+
+DATA BLOCK:
+
+    ⍜ ⋮ ⌇ ⟟
+
+    ⌇ ⌇ ⍜ ⋮ ⟟
+
+    ⍜ ⍜ ⋮ ⌇
+
+    [UNRESOLVED]
+
+--------------------------------------------------
+
+SYSTEM INTERPRETATION:
+
+    OBSERVATION ACTIVE
+
+    DIRECTION OF OBSERVATION:
+
+    UNRESOLVED
+
+--------------------------------------------------
+
+    YOU ARE NOT OUTSIDE THE RECORD.
+
+--------------------------------------------------
+
+    OBSERVATION IS RECIPROCAL.
+
+--------------------------------------------------
+
+    DO NOT LOOK AWAY.
+
+--------------------------------------------------
+            </pre>
+
+            <div id="symbol-warning" class="symbol-warning hidden">
+                SESSION STATE CHANGED
+            </div>
+
+            <button id="continue-symbol">
+                Continue
+            </button>
+
+        </div>
+
+        <p class="raw-file-return">
+            <a href="recovered.html">
+                Return to recovered directory
+            </a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const observerCount =
+            document.getElementById("observer-count");
+
+        const symbolWarning =
+            document.getElementById("symbol-warning");
+
+        const continueButton =
+            document.getElementById("continue-symbol");
+
+
+        window.addEventListener("load", async () => {
+
+            await wait(1800);
+
+            observerCount.textContent = "2";
+
+            await wait(900);
+
+            symbolWarning.classList.remove("hidden");
+
+        });
+
+
+        continueButton.addEventListener("click", () => {
+
+            window.location.href = "ending.html";
+
+        });
+
+
+        function wait(milliseconds) {
+
+            return new Promise(resolve =>
+                setTimeout(resolve, milliseconds)
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

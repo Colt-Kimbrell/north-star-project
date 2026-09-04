@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>attempt_134.log</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="raw-file-page">
+
+    <div class="raw-file-window">
+
+        <div class="raw-file-header">
+            attempt_134.log
+        </div>
+
+        <pre class="raw-file-text">
+NORTH STAR PROJECT
+AUTOMATED SESSION RECORD
+
+--------------------------------------------------
+
+FILE:
+
+    attempt_134.log
+
+SOURCE:
+
+    /NSP/SESSION_RECOVERY/
+
+SESSION:
+
+    134
+
+RECOVERY INTEGRITY:
+
+    88%
+
+RECORD ORIGIN:
+
+    UNKNOWN
+
+--------------------------------------------------
+
+SESSION ACTIVITY
+
+[RECOVERED]
+
+Archive recovery initiated.
+
+Operator authorization:
+
+    NONE
+
+--------------------------------------------------
+
+[RECOVERED]
+
+North Star Project archive opened.
+
+Recovered records accessed.
+
+Observation materials displayed.
+
+--------------------------------------------------
+
+[RECOVERED]
+
+NSP-74-048 reconstruction initiated.
+
+Original photographic record accessed.
+
+Digital reconstruction generated.
+
+Image comparison completed.
+
+CHECKSUM DIFFERENCE:
+
+    0%
+
+VISUAL DIFFERENCE:
+
+    DETECTED
+
+--------------------------------------------------
+
+[RECOVERED]
+
+Restricted system file accessed:
+
+    ⍜⋮⌇⟟_02.dat
+
+Observer state changed.
+
+PREVIOUS OBSERVER COUNT:
+
+    1
+
+CURRENT OBSERVER COUNT:
+
+    2
+
+--------------------------------------------------
+
+[RECOVERED]
+
+Containment warning displayed.
+
+Warning acknowledged:
+
+    NO
+
+Session continued:
+
+    YES
+
+--------------------------------------------------
+
+[RECOVERED]
+
+Restoration Attempt 134 terminated.
+
+Archive integrity changed:
+
+    87% → 88%
+
+Reason:
+
+    ADDITIONAL DATA RECOVERED
+
+--------------------------------------------------
+
+ADDITIONAL DATA SOURCE:
+
+    OBSERVER
+
+--------------------------------------------------
+
+OBSERVER RECORD
+
+Designation:
+
+    OBSERVER_02
+
+Origin:
+
+    EXTERNAL
+
+Connection:
+
+    TERMINATED
+
+Observation status:
+
+    ACTIVE
+
+--------------------------------------------------
+
+NOTE:
+
+Connection termination does not terminate observation.
+
+--------------------------------------------------
+
+LAST ACTIVITY:
+
+    CURRENT SESSION
+
+--------------------------------------------------
+
+This file did not exist before you opened the archive.
+
+--------------------------------------------------
+
+It does now.
+
+--------------------------------------------------
+
+[END OF LOG]
+        </pre>
+
+        <p class="raw-file-return">
+            <a href="recovered.html">
+                Return to recovered directory
+            </a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================
+           VERIFY PREVIOUS SESSION
+        ========================================== */
+
+        const previousRecovery =
+            localStorage.getItem(
+                "northStarCompleted"
+            ) === "true";
+
+
+        /*
+            If someone somehow reaches this page
+            before completing Attempt 134,
+            the archive refuses to display it.
+        */
+
+        if (!previousRecovery) {
+
+            document.querySelector(
+                ".raw-file-text"
+            ).textContent =
+`FILE NOT FOUND
+
+--------------------------------------------------
+
+The requested record does not exist.
+
+--------------------------------------------------
+
+[END]`;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

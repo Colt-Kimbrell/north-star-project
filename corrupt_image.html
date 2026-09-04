@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NSP_74_0▒8.img</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="raw-file-page">
+
+    <div class="raw-file-window image-recovery-window">
+
+        <div class="raw-file-header">
+            NSP_74_0▒8.img
+        </div>
+
+        <div class="image-recovery-content">
+
+            <div class="image-file-meta">
+                FILE TYPE: RECOVERED IMAGE DATA<br>
+                SOURCE: /NSP/UNINDEXED/<br>
+                CATALOG MATCH: NSP-74-048<br>
+                RECOVERY STATUS: PARTIAL<br>
+                IMAGE DATA RECOVERED: <span id="image-percent">61%</span>
+            </div>
+
+            <hr>
+
+            <div class="reconstruction-image-container">
+
+                <img
+                    id="reconstruction-image"
+                    src="images/plate_74_048.png"
+                    alt="Recovered North Star Project observation plate 74-048"
+                >
+
+                <div id="image-interference"></div>
+
+            </div>
+
+            <div id="reconstruction-status">
+
+                <p>
+                    IMAGE DECODING FAILURE
+                </p>
+
+                <p>
+                    61% OF IMAGE DATA RECOVERED
+                </p>
+
+            </div>
+
+            <button id="reconstruct-button">
+                Attempt Reconstruction
+            </button>
+
+            <div id="reconstruction-results" class="hidden">
+
+                <hr>
+
+                <pre>
+RECONSTRUCTION COMPLETE
+
+CATALOG MATCH: NSP-74-048
+
+STELLAR REFERENCES IDENTIFIED: 147
+
+PHOTOGRAPHIC DEFECTS: 3
+
+UNIDENTIFIED OBJECTS: 0
+
+NO ANOMALOUS IMAGE DATA DETECTED
+
+CHECKSUM MATCH: 100%
+
+IMAGE MODIFICATION: NONE
+                </pre>
+
+                <div class="reconstruction-warning">
+
+                    Reconstruction timestamp:
+
+                    <strong>
+                        08/14/2004 02:14:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="raw-file-return">
+            <a href="recovered.html">
+                Return to recovered directory
+            </a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const reconstructButton =
+            document.getElementById("reconstruct-button");
+
+        const reconstructionImage =
+            document.getElementById("reconstruction-image");
+
+        const imagePercent =
+            document.getElementById("image-percent");
+
+        const reconstructionStatus =
+            document.getElementById("reconstruction-status");
+
+        const reconstructionResults =
+            document.getElementById("reconstruction-results");
+
+        const interference =
+            document.getElementById("image-interference");
+
+
+        reconstructButton.addEventListener("click", async () => {
+
+            reconstructButton.disabled = true;
+
+            reconstructButton.textContent =
+                "Reconstructing...";
+
+
+            /* Stage 1 */
+
+            reconstructionStatus.innerHTML =
+                "<p>READING IMAGE SECTORS...</p>";
+
+            interference.classList.add("active");
+
+            await wait(1100);
+
+
+            /* Stage 2 */
+
+            imagePercent.textContent = "74%";
+
+            reconstructionStatus.innerHTML =
+                "<p>74% OF IMAGE DATA RECOVERED</p>";
+
+            await wait(1200);
+
+
+            /* Stage 3 */
+
+            imagePercent.textContent = "86%";
+
+            reconstructionStatus.innerHTML =
+                "<p>RECONSTRUCTING DAMAGED SECTORS...</p>";
+
+            await wait(1400);
+
+
+            /* Something goes wrong */
+
+            reconstructionStatus.innerHTML =
+                "<p class='recovery-error'>SOURCE IMAGE CONFLICT</p>";
+
+            await wait(900);
+
+
+            reconstructionStatus.innerHTML =
+                "<p>RESOLVING...</p>";
+
+            await wait(1400);
+
+
+            /* Swap to reconstructed image */
+
+            reconstructionImage.style.opacity = "0";
+
+            await wait(500);
+
+            reconstructionImage.src =
+                "images/plate_74_048_reconstructed.png";
+
+            reconstructionImage.style.opacity = "1";
+
+            imagePercent.textContent = "100%";
+
+            await wait(900);
+
+
+            /* Finish */
+
+            interference.classList.remove("active");
+
+            reconstructionStatus.innerHTML =
+                "<p>IMAGE RECONSTRUCTION COMPLETE</p>";
+
+            reconstructButton.classList.add("hidden");
+
+            reconstructionResults.classList.remove("hidden");
+
+        });
+
+
+        function wait(milliseconds) {
+
+            return new Promise(resolve =>
+                setTimeout(resolve, milliseconds)
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

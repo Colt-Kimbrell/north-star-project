@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The North Star Project</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="recovery-page">
+
+
+    <!-- =========================================
+         INTRODUCTION / AUTHOR CREDIT
+    ========================================== -->
+
+    <div id="intro-screen" class="intro-screen">
+
+        <div class="intro-content">
+
+            <h1>THE NORTH STAR PROJECT</h1>
+
+            <p class="intro-subtitle">
+                Interactive Archival Electronic Literature
+            </p>
+
+            <p class="intro-credit">
+                Created by Colt Kimbrell
+            </p>
+
+            <div class="intro-divider"></div>
+
+            <div class="intro-system">
+
+                <p>
+                    ARCHIVE RECOVERY UTILITY
+                </p>
+
+                <p>
+                    System State:
+                    <strong>UNKNOWN</strong>
+                </p>
+
+            </div>
+
+            <button id="initialize-button">
+                Initialize
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         ARCHIVE RECOVERY WINDOW
+    ========================================== -->
+
+    <div id="recovery-interface"
+         class="recovery-window hidden">
+
+        <div class="title-bar">
+            Archive Recovery Utility
+        </div>
+
+        <div class="window-content">
+
+
+            <!-- =================================
+                 WARNING SCREEN
+            ================================== -->
+
+            <div id="warning-screen">
+
+                <h2>⚠ Corrupted Files Detected</h2>
+
+                <p>
+                    Corrupted files were detected in:
+                </p>
+
+                <p class="folder-name">
+                    C:\ARCHIVES\NORTH-STAR-PROJECT
+                </p>
+
+                <p>
+                    Some archived data may be incomplete or damaged.
+                </p>
+
+                <p>
+                    Would you like to attempt recovery?
+                </p>
+
+                <div class="buttons">
+
+                    <button id="restore-button">
+                        Restore Files
+                    </button>
+
+                    <button id="cancel-button">
+                        Cancel
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 RECOVERY SCREEN
+            ================================== -->
+
+            <div id="recovery-screen"
+                 class="hidden">
+
+                <h2>Restoring archive...</h2>
+
+                <div id="file-status">
+                    Preparing recovery...
+                </div>
+
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <div id="percentage">
+                    0%
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 COMPLETE SCREEN
+            ================================== -->
+
+            <div id="complete-screen"
+                 class="hidden">
+
+                <h2>Recovery Complete</h2>
+
+                <p>
+                    87% of archive successfully restored.
+                </p>
+
+                <p class="warning">
+                    WARNING: Some files may display incorrectly.
+                </p>
+
+                <button id="archive-button">
+                    View Restored Archive
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         SYSTEM ERROR AUDIO
+    ========================================== -->
+
+    <audio
+        id="error-sound"
+        src="audio/erro.mp3"
+        preload="auto">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

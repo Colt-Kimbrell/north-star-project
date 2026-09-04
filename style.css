@@ -1,0 +1,1318 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.recovery-page {
+    height: 100vh;
+    background: #3a6ea5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recovery-window {
+    width: 520px;
+    background: #d4d0c8;
+    border: 2px solid white;
+    box-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #808080;
+}
+
+.title-bar {
+    background: linear-gradient(
+        90deg,
+        #000080,
+        #1084d0
+    );
+
+    color: white;
+    font-weight: bold;
+    padding: 6px 8px;
+    font-size: 14px;
+}
+
+.window-content {
+    padding: 25px;
+    min-height: 260px;
+}
+
+.folder-name {
+    background: white;
+    border: 1px inset #999;
+    padding: 8px;
+    font-family: "Courier New", monospace;
+}
+
+.buttons {
+    margin-top: 25px;
+    text-align: right;
+}
+
+button {
+    font-family: Tahoma, Arial, sans-serif;
+    padding: 6px 18px;
+    margin-left: 8px;
+    background: #d4d0c8;
+    border: 2px outset white;
+    cursor: pointer;
+}
+
+button:active {
+    border-style: inset;
+}
+
+
+.progress-container {
+    width: 100%;
+    height: 24px;
+    background: white;
+    border: 2px inset #ddd;
+    margin-top: 25px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #000080;
+}
+
+#percentage {
+    margin-top: 8px;
+    text-align: right;
+    font-family: "Courier New", monospace;
+}
+
+#file-status {
+    height: 60px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.warning {
+    color: #800000;
+    font-weight: bold;
+}
+
+/* =========================================
+   NORTH STAR DIGITAL ARCHIVE
+========================================= */
+
+.archive-page {
+    margin: 0;
+    padding: 0;
+    background: #e5e5e5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+.archive-container {
+    width: 850px;
+    max-width: 95%;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #777;
+    padding: 20px 28px 30px 28px;
+}
+
+.archive-header {
+    border-bottom: 4px solid #1d3557;
+    margin-bottom: 5px;
+}
+
+.archive-header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    color: #1d3557;
+}
+
+.archive-subtitle {
+    margin: 4px 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.archive-dates {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+
+/* Navigation */
+
+.archive-nav {
+    background: #eeeeee;
+    border-bottom: 1px solid #999;
+    padding: 7px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.archive-nav a {
+    color: #003399;
+    text-decoration: underline;
+    margin: 0 5px;
+}
+
+.archive-nav a:hover {
+    color: #990000;
+}
+
+
+/* Recovery Notice */
+
+.recovery-notice {
+    background: #fff8dc;
+    border: 1px solid #c6a700;
+    padding: 10px 14px;
+    margin: 15px 0 25px 0;
+    font-size: 13px;
+}
+
+.recovery-notice p {
+    margin: 5px 0;
+}
+
+
+/* Sections */
+
+.archive-page section {
+    margin: 28px 0;
+}
+
+.archive-page h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    color: #1d3557;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 4px;
+}
+
+.archive-page p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Archive Table */
+
+.archive-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.archive-table th {
+    background: #1d3557;
+    color: white;
+    text-align: left;
+    padding: 7px;
+    border: 1px solid #777;
+}
+
+.archive-table td {
+    padding: 8px;
+    border: 1px solid #aaa;
+    vertical-align: top;
+}
+
+.archive-table tr:nth-child(even) {
+    background: #f3f3f3;
+}
+
+.archive-table a {
+    color: #003399;
+}
+
+
+/* Slightly suspicious entry */
+
+.damaged-entry {
+    background: #eeeeee !important;
+}
+
+.corrupt-status {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #800000;
+}
+
+
+/* Footer */
+
+.archive-footer {
+    margin-top: 40px;
+    font-size: 11px;
+    color: #666;
+}
+
+.archive-footer p {
+    font-size: 11px;
+    margin: 3px 0;
+}
+
+/* =========================================
+   OBSERVATION LOGS
+========================================= */
+
+.log-entry {
+    margin: 24px 0;
+    padding: 15px 18px;
+    background: #f7f7f2;
+    border: 1px solid #aaa;
+    border-left: 4px solid #777;
+}
+
+.log-entry h3 {
+    margin-top: 0;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    color: #222;
+}
+
+.log-meta {
+    font-family: "Courier New", monospace;
+    font-size: 12px !important;
+    color: #555;
+    border-bottom: 1px dotted #aaa;
+    padding-bottom: 8px;
+}
+
+.important-log {
+    background: #f3f1e8;
+}
+
+.missing-log {
+    font-family: "Courier New", monospace;
+    background: #ededed;
+    text-align: center;
+    color: #555;
+}
+
+.handwritten-note {
+    margin: 18px 20px;
+    padding: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transform: rotate(-1deg);
+}
+
+/* =========================================
+   IMAGE ARCHIVE
+========================================= */
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.archive-image {
+    margin: 0;
+    padding: 10px;
+    background: #f5f5f2;
+    border: 1px solid #aaa;
+}
+
+.archive-image img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background: #ddd;
+    border: 1px solid #777;
+}
+
+.archive-image img:hover {
+    border-color: #003399;
+}
+
+.archive-image figcaption {
+    margin-top: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.archive-image figcaption a {
+    color: #003399;
+}
+
+.missing-image {
+    background: #eeeeee;
+}
+
+.missing-image-box {
+    height: 300px;
+    border: 1px solid #777;
+    background: #222;
+    color: #aaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================
+   PERSONNEL RECORDS
+========================================= */
+
+.personnel-record {
+    margin: 22px 0;
+    padding: 15px 18px;
+    background: #f7f7f2;
+    border: 1px solid #aaa;
+    border-left: 4px solid #777;
+}
+
+.personnel-record h3 {
+    margin-top: 0;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+}
+
+.incomplete-record {
+    background: #eeeeee;
+    border-left-color: #800000;
+}
+
+.record-quote {
+    margin: 15px 25px;
+    padding: 12px;
+    background: #eeeeee;
+    border-left: 3px solid #777;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.personnel-photo {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* =========================================
+   RECOVERY STATUS EFFECTS
+========================================= */
+
+.recovery-error {
+    color: #a00000;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+}
+
+.recovery-warning {
+    color: #7a4b00;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+}
+
+.recovery-success {
+    color: #006000;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+}
+
+/* =========================================
+   AUDIO ARCHIVE / TRANSCRIPTS
+========================================= */
+
+.audio-record {
+    margin: 20px 0 35px 0;
+    padding: 18px;
+    background: #f7f7f2;
+    border: 1px solid #999;
+}
+
+.audio-meta {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #888;
+}
+
+.transcript {
+    margin-top: 15px;
+    padding: 15px 20px;
+    background: #eeeeea;
+    border: 1px solid #aaa;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+}
+
+.transcript p {
+    margin: 11px 0;
+}
+
+.timestamp {
+    display: inline-block;
+    width: 75px;
+    color: #555;
+}
+
+.transcript-gap {
+    margin: 20px 0 !important;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.transcription-note {
+    margin: 18px 0;
+    padding: 12px;
+    border-left: 4px solid #777;
+    background: #e8e8e3;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+}
+
+.damaged-record {
+    border-left: 4px solid #800000;
+}
+
+.unknown-text {
+    font-size: 18px;
+    letter-spacing: 7px;
+    font-weight: bold;
+}
+
+.corrupt-text {
+    color: #555;
+    font-family: "Courier New", monospace;
+}
+
+.restricted-record {
+    padding: 20px;
+    background: #e5e5e5;
+    border: 1px solid #777;
+    font-family: "Courier New", monospace;
+}
+
+.black-redaction {
+    background: #111;
+    color: #111;
+    padding: 1px 8px;
+    user-select: none;
+}
+
+/* =========================================
+   RECOVERED FILE DIRECTORY
+========================================= */
+
+.recovered-page {
+    margin: 0;
+    background: #111;
+    color: #cfcfcf;
+    font-family: "Courier New", monospace;
+}
+
+.recovered-container {
+    width: 800px;
+    max-width: 92%;
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid #555;
+    background: #181818;
+}
+
+.recovered-container h1 {
+    font-size: 22px;
+    color: #eeeeee;
+}
+
+.recovered-container a {
+    color: #8db8ff;
+}
+
+.recovered-list {
+    margin: 30px 0;
+}
+
+.recovered-list p {
+    margin: 15px 0;
+}
+
+.unknown-file a {
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.recovered-footer {
+    color: #777;
+    font-size: 12px;
+}
+
+/* =========================================
+   RECOVERED FILE DETAILS
+========================================= */
+
+/* Entire page behind recovered text files */
+
+.raw-file-page {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background: #1a1a1a;
+    color: #d8d8d8;
+
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+/* Main recovered-file viewer window */
+
+.raw-file-window {
+    width: 850px;
+    max-width: 92%;
+
+    margin: 35px auto 60px auto;
+
+    background: #0d0d0d;
+
+    border: 1px solid #555;
+
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.65);
+
+    overflow: hidden;
+}
+
+
+/* Old Windows-style filename bar */
+
+.raw-file-header {
+    padding: 8px 12px;
+
+    background: #d4d0c8;
+    color: #000;
+
+    border-bottom: 1px solid #777;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+/* Actual recovered document */
+
+.raw-file-text {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+
+    /*
+       This is what pulls the document
+       away from the left/right edges.
+    */
+
+    margin: 18px 28px 24px 28px;
+    padding: 22px 26px;
+
+    background: #111;
+    color: #d0d0d0;
+
+    border-left: 1px solid #333;
+    border-right: 1px solid #222;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* Selected text */
+
+.raw-file-text::selection {
+    background: #d0d0d0;
+    color: #000;
+}
+
+
+/* Strong text inside recovered files */
+
+.raw-file-text strong {
+    color: #ffffff;
+}
+
+
+/* Return-navigation area */
+
+.raw-file-return {
+    margin: 0 28px 24px 28px;
+    padding: 12px 0 0 0;
+
+    border-top: 1px solid #333;
+}
+
+
+/* Return-navigation link */
+
+.raw-file-return a {
+    color: #8db8ff;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+
+    text-decoration: underline;
+}
+
+.raw-file-return a:hover {
+    color: #b7d0ff;
+}
+
+
+/* =========================================
+   RAW FILE MOBILE LAYOUT
+========================================= */
+
+@media (max-width: 700px) {
+
+    .raw-file-window {
+        width: 96%;
+        max-width: 96%;
+        margin: 15px auto 30px auto;
+    }
+
+    .raw-file-text {
+        margin: 10px;
+        padding: 16px;
+
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .raw-file-return {
+        margin: 0 10px 18px 10px;
+    }
+
+}
+
+/* =========================================
+   CORRUPTED IMAGE RECONSTRUCTION
+========================================= */
+
+.image-recovery-window {
+    max-width: 900px;
+}
+
+.image-recovery-content {
+    margin: 24px 28px;
+    padding: 20px;
+
+    background: #111;
+    border: 1px solid #333;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+}
+
+.image-file-meta {
+    line-height: 1.7;
+    color: #cfcfcf;
+}
+
+.reconstruction-image-container {
+    position: relative;
+
+    max-width: 650px;
+    margin: 25px auto;
+
+    background: #000;
+    border: 1px solid #555;
+
+    overflow: hidden;
+}
+
+#reconstruction-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    transition:
+        opacity 0.5s ease,
+        filter 0.8s ease;
+
+    filter:
+        grayscale(100%)
+        contrast(1.15);
+}
+
+
+/* Interference layer */
+
+#image-interference {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+#image-interference.active {
+    opacity: 1;
+    animation: image-flicker 0.15s infinite;
+}
+
+
+@keyframes image-flicker {
+
+    0% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+
+}
+
+
+/* Reconstruction status */
+
+#reconstruction-status {
+    min-height: 45px;
+
+    text-align: center;
+
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+
+    color: #ccc;
+}
+
+
+/* Old-school reconstruction button */
+
+#reconstruct-button {
+    display: block;
+
+    margin: 20px auto;
+
+    padding: 7px 18px;
+
+    background: #d4d0c8;
+    color: #000;
+
+    border: 2px outset white;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+}
+
+#reconstruct-button:active {
+    border-style: inset;
+}
+
+
+/* Results */
+
+#reconstruction-results {
+    margin-top: 25px;
+}
+
+#reconstruction-results pre {
+    white-space: pre-wrap;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #ccc;
+}
+
+.reconstruction-warning {
+    margin-top: 20px;
+    padding: 12px;
+
+    border-left: 3px solid #800000;
+
+    background: #181818;
+
+    font-size: 12px;
+}
+
+/* =========================================
+   NORTH STAR INTRODUCTION
+========================================= */
+
+.intro-screen {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #3a6ea5;
+}
+
+.intro-content {
+    width: 520px;
+    max-width: 90%;
+
+    padding: 35px 40px;
+
+    background: #d4d0c8;
+
+    border: 2px solid white;
+
+    box-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #808080;
+
+    text-align: center;
+}
+
+.intro-content h1 {
+    margin: 0 0 8px 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 28px;
+    letter-spacing: 1px;
+
+    color: #111;
+}
+
+.intro-subtitle {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+
+    color: #333;
+}
+
+.intro-credit {
+    margin: 6px 0 0 0;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+.intro-divider {
+    width: 75%;
+
+    margin: 28px auto;
+
+    border-top: 1px solid #888;
+    border-bottom: 1px solid white;
+}
+
+.intro-system {
+    margin-bottom: 22px;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.intro-system p {
+    margin: 4px 0;
+}
+
+.intro-system strong {
+    color: #800000;
+}
+
+#initialize-button {
+    min-width: 110px;
+}
+
+
+/* =========================================
+   NORTH STAR ENDING
+========================================= */
+
+.ending-page {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: #000;
+    color: #d0d0d0;
+
+    font-family: "Courier New", monospace;
+}
+
+
+/* =========================================
+   SYMBOL FIELD
+========================================= */
+
+#symbol-field {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.ending-symbol {
+    position: absolute;
+
+    opacity: 0;
+
+    color: #b8b8b8;
+
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.25);
+
+    animation:
+        symbol-appear 3s ease-in-out infinite;
+}
+
+@keyframes symbol-appear {
+
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 0.7;
+    }
+
+    70% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================
+   RECOVERY TEXT
+========================================= */
+
+.ending-system {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+#ending-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+
+    color: #ccc;
+}
+
+.ending-error-text {
+    color: #a00000 !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   FINAL WINDOWS ERROR
+========================================= */
+
+.final-error {
+    position: fixed;
+
+    width: 470px;
+    max-width: 90%;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
+
+    background: #d4d0c8;
+    color: #000;
+
+    border: 2px solid white;
+
+    box-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #808080;
+
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.final-error-content {
+    padding: 25px;
+}
+
+.final-error-content h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   TERMINAL
+========================================= */
+
+.terminal-window {
+    position: fixed;
+
+    width: 720px;
+    max-width: 90%;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 10;
+
+    border: 1px solid #777;
+
+    background: #000;
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.08);
+}
+
+.terminal-title {
+    padding: 5px 8px;
+
+    background: #d4d0c8;
+    color: #000;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.terminal-body {
+    min-height: 420px;
+    max-height: 75vh;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background: #000;
+    color: #cfcfcf;
+
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.terminal-cursor {
+    display: inline-block;
+
+    animation:
+        terminal-blink 0.8s step-end infinite;
+}
+
+@keyframes terminal-blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* =========================================
+   SYMBOL FILE
+========================================= */
+
+.symbol-file-content {
+    margin: 24px 28px;
+}
+
+.symbol-warning {
+    margin: 18px 0;
+    padding: 12px;
+
+    background: #181818;
+    border-left: 3px solid #800000;
+
+    color: #d0d0d0;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#continue-symbol {
+    display: block;
+
+    margin: 25px auto 10px auto;
+    padding: 7px 18px;
+
+    background: #d4d0c8;
+    color: #000;
+
+    border: 2px outset white;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+}
+
+#continue-symbol:active {
+    border-style: inset;
+}
+
+
+/* =========================================
+   CONNECTION TERMINATED SCREEN
+========================================= */
+
+.connection-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #000;
+    color: #777;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#connection-message {
+    opacity: 0;
+
+    animation:
+        connection-fade 2s ease forwards;
+}
+
+@keyframes connection-fade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================
+   ENDING MOBILE LAYOUT
+========================================= */
+
+@media (max-width: 700px) {
+
+    .final-error {
+        width: 92%;
+        max-width: 92%;
+    }
+
+    .terminal-window {
+        width: 94%;
+        max-width: 94%;
+    }
+
+    .terminal-body {
+        min-height: 360px;
+        max-height: 78vh;
+
+        padding: 15px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    #ending-text {
+        max-width: 90%;
+
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .ending-symbol {
+        font-size: 16px;
+    }
+
+    .symbol-file-content {
+        margin: 16px 10px;
+    }
+
+}
+
+
+/* =========================================
+   GLOBAL HIDDEN STATE
+   KEEP THIS LAST
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+.connection-screen {
+    transition: opacity 1.5s ease;
+}

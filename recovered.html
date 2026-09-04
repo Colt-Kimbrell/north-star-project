@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recovered Files</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="recovered-page">
+
+    <div class="recovered-container">
+
+        <h1>RECOVERED FILE DIRECTORY</h1>
+
+        <p>
+            WARNING: The following files were recovered without corresponding
+            archive index records.
+        </p>
+
+        <p>
+            Metadata integrity cannot be verified.
+        </p>
+
+        <hr>
+
+        <div class="recovered-list">
+
+            <p>
+                <a href="do_not_restore.html">
+                    do_not_restore.txt
+                </a>
+            </p>
+
+            <p>
+                <a href="nsp_74_048.html">
+                    NSP_74_048.dat
+                </a>
+            </p>
+
+            <p>
+                <a href="redacted_record.html">
+                    ████████████.dat
+                </a>
+            </p>
+
+            <p>
+                <a href="redacted_2004.html">
+                    [REDACTED].txt
+                </a>
+            </p>
+
+            <p>
+                <a href="corrupt_image.html">
+                    NSP_74_0▒8.img
+                </a>
+            </p>
+
+            <p class="unknown-file">
+                <a href="symbol_file.html">
+                    ⍜⋮⌇⟟_02.dat
+                </a>
+            </p>
+
+
+            <!-- =========================================
+                 SECOND-VISIT FILE
+            ========================================== -->
+
+            <div id="second-visit-file" class="hidden">
+
+                <hr>
+
+                <p class="recovery-warning">
+                    ADDITIONAL RECORD RECOVERED
+                </p>
+
+                <p>
+                    <a href="attempt_134.html">
+                        attempt_134.log
+                    </a>
+                </p>
+
+                <p class="recovered-footer">
+                    Source directory:
+                    /NSP/SESSION_RECOVERY/
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="recovered-footer">
+            Directory recovery timestamp: August 14, 2004
+        </p>
+
+        <p id="current-session-status"
+           class="recovered-footer hidden">
+        </p>
+
+        <p>
+            <a href="archive.html">
+                Return to archive
+            </a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================
+           SECOND-VISIT DETECTION
+        ========================================== */
+
+        const previousRecovery =
+            localStorage.getItem(
+                "northStarCompleted"
+            ) === "true";
+
+        const previousAttempt =
+            localStorage.getItem(
+                "northStarAttempt"
+            );
+
+        const previousIntegrity =
+            localStorage.getItem(
+                "northStarIntegrity"
+            );
+
+
+        if (previousRecovery) {
+
+            const secondVisitFile =
+                document.getElementById(
+                    "second-visit-file"
+                );
+
+            const sessionStatus =
+                document.getElementById(
+                    "current-session-status"
+                );
+
+
+            secondVisitFile.classList.remove(
+                "hidden"
+            );
+
+
+            sessionStatus.innerHTML =
+                `
+                Previous recovery session detected.<br>
+                Attempt:
+                ${previousAttempt || "134"}<br>
+                Recorded archive integrity:
+                ${previousIntegrity || "88"}%
+                `;
+
+            sessionStatus.classList.remove(
+                "hidden"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

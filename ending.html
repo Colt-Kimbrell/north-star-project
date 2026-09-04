@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>North Star Project</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="ending-page">
+
+    <!-- =========================================
+         RANDOM SYMBOL FIELD
+    ========================================== -->
+
+    <div id="symbol-field"></div>
+
+
+    <!-- =========================================
+         SYSTEM RECOVERY TEXT
+    ========================================== -->
+
+    <div id="ending-system" class="ending-system">
+
+        <div id="ending-text"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         WINDOWS-STYLE ERROR
+    ========================================== -->
+
+    <div id="final-error" class="final-error hidden">
+
+        <div class="title-bar">
+            Archive Recovery Error
+        </div>
+
+        <div class="final-error-content">
+
+            <h3>⚠ System Error</h3>
+
+            <p>
+                North-Star-Project encountered an
+                unrecoverable error.
+            </p>
+
+            <p>
+                Archive integrity:
+                <strong>88%</strong>
+            </p>
+
+            <p class="warning">
+                SYSTEM STATE: CORRUPTED
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TERMINAL
+    ========================================== -->
+
+    <div id="terminal-window" class="terminal-window hidden">
+
+        <div class="terminal-title">
+            C:\WINDOWS\system32\cmd.exe
+        </div>
+
+        <div class="terminal-body">
+
+            <div id="terminal-text"></div>
+
+            <span class="terminal-cursor">
+                █
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         FINAL BLACK SCREEN
+    ========================================== -->
+
+    <div id="connection-screen"
+         class="connection-screen hidden">
+
+        <div id="connection-message">
+            Connection terminated.
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         AUDIO
+    ========================================== -->
+
+    <audio
+        id="error-sound"
+        src="audio/erro.mp3"
+        preload="auto">
+    </audio>
+
+
+    <script>
+
+        const symbolField =
+            document.getElementById("symbol-field");
+
+        const endingText =
+            document.getElementById("ending-text");
+
+        const endingSystem =
+            document.getElementById("ending-system");
+
+        const finalError =
+            document.getElementById("final-error");
+
+        const terminalWindow =
+            document.getElementById("terminal-window");
+
+        const terminalText =
+            document.getElementById("terminal-text");
+
+        const connectionScreen =
+            document.getElementById("connection-screen");
+
+        const errorSound =
+            document.getElementById("error-sound");
+
+
+        const symbols = [
+            "⍜",
+            "⋮",
+            "⌇",
+            "⟟",
+            "⍜ ⋮",
+            "⌇ ⟟",
+            "⍜ ⋮ ⌇ ⟟"
+        ];
+
+
+        /* =========================================
+           BEGIN ENDING
+        ========================================== */
+
+        window.addEventListener("load", async () => {
+
+            await wait(1500);
+
+
+            /* -----------------------------------------
+               SYMBOL CORRUPTION
+            ----------------------------------------- */
+
+            createSymbolField();
+
+            await wait(4500);
+
+            symbolField.innerHTML = "";
+
+
+            /* -----------------------------------------
+               RECOVERY SYSTEM
+            ----------------------------------------- */
+
+            await showSystemMessage(
+                "NORTH STAR PROJECT"
+            );
+
+            await wait(900);
+
+            await showSystemMessage(
+                "ARCHIVE RECOVERY UTILITY"
+            );
+
+            await wait(1200);
+
+            await showSystemMessage(
+                "RESTORATION ATTEMPT: 134"
+            );
+
+            await wait(1300);
+
+            await showSystemMessage(
+                "RECOVERY STATUS: INTERRUPTED"
+            );
+
+            await wait(1300);
+
+            await showSystemMessage(
+                "ARCHIVE INTEGRITY: 88%"
+            );
+
+            await wait(1500);
+
+            await showSystemMessage(
+                "SYSTEM STATE: CORRUPTED",
+                true
+            );
+
+            await wait(2200);
+
+
+            /* -----------------------------------------
+               WINDOWS ERROR
+            ----------------------------------------- */
+
+            endingSystem.classList.add("hidden");
+
+            finalError.classList.remove("hidden");
+
+            playErrorSound();
+
+            await wait(4500);
+
+
+            /* -----------------------------------------
+               FALSE END
+            ----------------------------------------- */
+
+            finalError.classList.add("hidden");
+
+            await wait(2500);
+
+
+            /* -----------------------------------------
+               TERMINAL APPEARS
+            ----------------------------------------- */
+
+            terminalWindow.classList.remove("hidden");
+
+            await wait(900);
+
+
+            await typeLine(
+                "NORTH STAR PROJECT"
+            );
+
+            await typeLine(
+                "REMOTE SESSION RECOVERY"
+            );
+
+            await typeLine("");
+
+            await typeLine(
+                "> session_134 located"
+            );
+
+            await typeLine(
+                "> observer status: active"
+            );
+
+            await typeLine(
+                "> archive state: persistent"
+            );
+
+            await typeLine("");
+
+            await wait(900);
+
+
+            /* -----------------------------------------
+               WARNING
+            ----------------------------------------- */
+
+            await typeLine(
+                "You were never supposed to restore this."
+            );
+
+            await wait(1200);
+
+            await typeLine("");
+
+            await typeLine(
+                "The archive was not damaged."
+            );
+
+            await wait(700);
+
+            await typeLine(
+                "It was contained."
+            );
+
+            await wait(1500);
+
+            await typeLine("");
+
+            await typeLine(
+                "Containment has failed."
+            );
+
+            await wait(1800);
+
+            await typeLine("");
+
+            await typeLine(
+                "It knows where you are."
+            );
+
+            await wait(2000);
+
+            await typeLine("");
+
+            await typeLine(
+                "Do not attempt another recovery."
+            );
+
+            await typeLine(
+                "Do not open the observation plates."
+            );
+
+            await wait(1200);
+
+            await typeLine("");
+
+            await typeLine(
+                "Do not look for Polaris."
+            );
+
+            await wait(1800);
+
+            await typeLine("");
+
+            await typeLine(
+                "Do not look up at the night sky."
+            );
+
+            await wait(3800);
+
+            await typeLine("");
+
+            await typeLine(
+                "it is already looking back."
+            );
+
+
+            /* -----------------------------------------
+               HOLD THE FINAL LINE
+            ----------------------------------------- */
+
+            await wait(5000);
+
+
+            /* -----------------------------------------
+               ARCHIVE SESSION
+            ----------------------------------------- */
+
+            await typeLine("");
+
+            await typeLine(
+                "> session archived"
+            );
+
+            await wait(1300);
+
+            await typeLine(
+                "> recovery integrity updated: 88%"
+            );
+
+            await wait(1600);
+
+            await typeLine(
+                "> observer record written"
+            );
+
+            await wait(1200);
+
+
+            /*
+                THIS IS THE IMPORTANT PART.
+
+                We now tell the browser that
+                this reader completed the archive.
+            */
+
+            localStorage.setItem(
+                "northStarCompleted",
+                "true"
+            );
+
+            localStorage.setItem(
+                "northStarIntegrity",
+                "88"
+            );
+
+            localStorage.setItem(
+                "northStarAttempt",
+                "134"
+            );
+
+
+            /* -----------------------------------------
+               CLOSE TERMINAL
+            ----------------------------------------- */
+
+            await wait(2500);
+
+            terminalWindow.classList.add("hidden");
+
+            await wait(2000);
+
+
+            /* -----------------------------------------
+               TRUE END
+            ----------------------------------------- */
+
+            connectionScreen.classList.remove("hidden");
+
+            /*
+                Let "Connection terminated."
+                sit on screen long enough to feel final.
+            */
+
+            await wait(4500);
+
+
+            /*
+                Fade the termination screen away.
+            */
+
+            connectionScreen.style.opacity = "0";
+
+            await wait(1500);
+
+
+            /*
+                Restart the archive.
+
+                Because Attempt 134 has already been
+                saved to localStorage, index.html will
+                now load in SECOND-VISIT state.
+            */
+
+            window.location.href = "index.html";
+
+        });
+
+
+        /* =========================================
+           SYMBOL FIELD
+        ========================================== */
+
+        function createSymbolField() {
+
+            for (let i = 0; i < 35; i++) {
+
+                const symbol =
+                    document.createElement("span");
+
+                symbol.className =
+                    "ending-symbol";
+
+                symbol.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random() *
+                            symbols.length
+                        )
+                    ];
+
+                symbol.style.left =
+                    Math.random() * 95 + "%";
+
+                symbol.style.top =
+                    Math.random() * 95 + "%";
+
+                symbol.style.animationDelay =
+                    Math.random() * 3 + "s";
+
+                symbol.style.animationDuration =
+                    randomNumber(2, 5) + "s";
+
+                symbolField.appendChild(symbol);
+
+            }
+
+        }
+
+
+        /* =========================================
+           SYSTEM MESSAGE
+        ========================================== */
+
+        async function showSystemMessage(
+            message,
+            error = false
+        ) {
+
+            endingText.className =
+                error
+                    ? "ending-error-text"
+                    : "";
+
+            endingText.textContent =
+                message;
+
+        }
+
+
+        /* =========================================
+           TERMINAL TYPING
+        ========================================== */
+
+        async function typeLine(text) {
+
+            const line =
+                document.createElement("div");
+
+            terminalText.appendChild(line);
+
+            for (let i = 0; i < text.length; i++) {
+
+                line.textContent += text[i];
+
+                await wait(
+                    randomNumber(25, 65)
+                );
+
+            }
+
+            await wait(250);
+
+
+            /*
+                Keeps newest terminal lines visible.
+            */
+
+            const terminalBody =
+                document.querySelector(
+                    ".terminal-body"
+                );
+
+            terminalBody.scrollTop =
+                terminalBody.scrollHeight;
+
+        }
+
+
+        /* =========================================
+           SOUND
+        ========================================== */
+
+        function playErrorSound() {
+
+            if (!errorSound) {
+                return;
+            }
+
+            errorSound.currentTime = 0;
+
+            errorSound.play().catch(() => {});
+
+        }
+
+
+        /* =========================================
+           HELPERS
+        ========================================== */
+
+        function wait(milliseconds) {
+
+            return new Promise(resolve =>
+                setTimeout(
+                    resolve,
+                    milliseconds
+                )
+            );
+
+        }
+
+
+        function randomNumber(min, max) {
+
+            return Math.floor(
+                Math.random() *
+                (max - min + 1)
+            ) + min;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
